@@ -49,12 +49,24 @@ quotes = [
  * `getRandomQuote` function
 ***/
 
+function getRandomQuote(quoteParam) {
+    let HTMLbuild = '<h1>';
+    for (let i = 0; i < quoteParam.length; i++ ) {
+        HTMLbuild += `<h2> ${quoteParam[i].quote} </h2> <br /> <h3> - ${quoteParam[i].source} ${quoteParam[i].citation} <i> ${quoteParam[i].year}</i></h3> </h1>`;
+        console.log(HTMLbuild);
+    }
+}
 
+getRandomQuote(quotes);
 
 /***
  * `printQuote` function
 ***/
 
+
+function printQuote(){
+
+}
 
 
 /***
