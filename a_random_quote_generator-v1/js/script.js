@@ -51,7 +51,7 @@ quotes = [
 
  let getRandomQuote = function (quoteParam) {
     let quoteVar = quoteParam[Math.floor(Math.random() * quoteParam.length)];
-    console.log(quoteVar);
+    document.write(quoteVar.quote + quoteVar.year);
  }
 
 getRandomQuote(quotes);
