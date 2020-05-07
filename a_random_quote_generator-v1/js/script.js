@@ -49,16 +49,10 @@ quotes = [
  * `getRandomQuote` function
 ***/
 
-function getRandomQuote(quoteParam) {
+ let getRandomQuote = function (quoteParam) {
     let quoteVar = quoteParam[Math.floor(Math.random() * quoteParam.length)];
-    let HTMLbuild = '<h1>';
-    for (let i = 0; i < quoteParam.length; i++ ) {
-        HTMLbuild += `<h2> ${quoteParam[i].quote} </h2>`;
-        // let randomizer = Math.floor(Math.random() * quoteParam.index);
-
-        console.log(quoteVar);
-    }
-}
+    console.log(quoteVar);
+ }
 
 getRandomQuote(quotes);
 
@@ -70,6 +64,7 @@ getRandomQuote(quotes);
 function printQuote(){
 
 }
+
 
 
 /***
