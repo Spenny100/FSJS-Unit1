@@ -31,13 +31,13 @@ quotes = [
         year: '2009'
     },
     {
-        quote: '"This is Pretzel Day"',
+        quote: '"This is Pretzel Day."',
         source: 'Stanley Hudson',
         citation: 'The Office',
         year: '2006'
     },
     {
-        quote: '"I got six numbers. One more and it would have been a complete phone number"',
+        quote: '"I got six numbers. One more and it would have been a complete phone number."',
         source: 'Kevin Malone',
         citation: 'The Office',
         year: '2009'
@@ -49,9 +49,12 @@ quotes = [
  * `getRandomQuote` function
 ***/
 
- let getRandomQuote = function (quoteParam) {
+let HTMLbuild;
+
+  function getRandomQuote(quoteParam) {
     let quoteVar = quoteParam[Math.floor(Math.random() * quoteParam.length)];
-    document.write(quoteVar.quote + quoteVar.year);
+     HTMLbuild += `<p class="quote"> ${quoteVar.quote}</p><p class="source">${quoteVar.source}<span class="citation">${quoteVar.citation}</span><span class="year">${quoteVar.year}</span></p>`;
+
  }
 
 getRandomQuote(quotes);
@@ -60,11 +63,12 @@ getRandomQuote(quotes);
  * `printQuote` function
 ***/
 
-
-function printQuote(){
-
+//This doesn't work:
+function printQuote(passedParam){
+    document.write(passedParam);
 }
 
+printQuote(HTMLbuild);
 
 
 /***
