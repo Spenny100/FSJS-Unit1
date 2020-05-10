@@ -68,7 +68,7 @@ function printQuote(printParam){
     document.write(HTMLbuild);
 }
 
-printQuote(quoteParam);
+printQuote(randomizer);
 
 
 /***
