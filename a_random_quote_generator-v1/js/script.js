@@ -65,7 +65,10 @@ const randomQuote =  getRandomQuote(quotes);
 
 function printQuote(printParam){
     HTMLbuild = `<p class="quote"> ${printParam.quote}</p><p class="source">${printParam.source}<span class="citation">${printParam.citation}</span><span class="year">${printParam.year}</span></p>`;
-    console.log(HTMLbuild);
+
+    return document.getElementById('quote-box').innerHTML = HTMLbuild;
+
+    // console.log(HTMLbuild);
 }
 
  printQuote(randomQuote);
