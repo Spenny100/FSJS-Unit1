@@ -51,12 +51,12 @@ quotes = [
 
 
 
-  function getRandomQuote(quoteParam) {
+function getRandomQuote(quoteParam) {
     let randomizer = quoteParam[Math.floor(Math.random() * quoteParam.length)];
     return randomizer;
  }
 
-getRandomQuote(quotes);
+const randomQuote =  getRandomQuote(quotes);
 
 /***
  * `printQuote` function
@@ -65,10 +65,10 @@ getRandomQuote(quotes);
 
 function printQuote(printParam){
     HTMLbuild = `<p class="quote"> ${printParam.quote}</p><p class="source">${printParam.source}<span class="citation">${printParam.citation}</span><span class="year">${printParam.year}</span></p>`;
-    document.write(HTMLbuild);
+    console.log(HTMLbuild);
 }
 
-printQuote(randomizer);
+ printQuote(randomQuote);
 
 
 /***
