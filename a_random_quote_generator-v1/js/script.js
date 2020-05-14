@@ -47,31 +47,36 @@ quotes = [
         quote: '"I love inside jokes. I hope to be a part of one someday."',
         source: 'Michael Scott',
         citation: 'The Office',
-        year: '2006'
+        year: '2006',
+        genre: 'Sitcom'
     },
     {
         quote: '"You couldn\'t handle my undivided attention."',
         source: 'Dwight Schrute',
         citation: 'The Office',
-        year: '2010'
+        year: '2010',
+        genre: 'Sitcom'
     },
     {
         quote: '"Andy Bernard does not lose contests. He wins them. Or he quits them. Because they\'re unfair."',
         source: 'Andy Bernard',
         citation: 'The Office',
-        year: '2009'
+        year: '2009',
+        genre: 'Sitcom'
     },
     {
         quote: '"This is Pretzel Day."',
         source: 'Stanley Hudson',
         citation: 'The Office',
-        year: '2006'
+        year: '2006',
+        genre: 'Sitcom'
     },
     {
         quote: '"I got six numbers. One more and it would have been a complete phone number."',
         source: 'Kevin Malone',
         citation: 'The Office',
-        year: '2009'
+        year: '2009',
+        genre: 'Sitcom'
     },
 ];
 
@@ -111,7 +116,7 @@ function getRandomQuote(quoteParam) {
 function printQuote(){
     const randomQuote =  getRandomQuote(quotes);
     const randomColor = getRandomColor(colors);
-    let HTMLbuild = `<p class="quote"> ${randomQuote.quote}</p><p class="source">${randomQuote.source}<span class="citation">${randomQuote.citation}</span><span class="year">${randomQuote.year}</span></p>`;
+    let HTMLbuild = `<p class="quote"> ${randomQuote.quote}</p><p class="source">${randomQuote.source}<span class="citation">${randomQuote.citation}</span><span class="year">${randomQuote.year}, </span><span>${randomQuote.genre}</span></p>`;
     let BGCcolor = randomColor.bcolor;
 
     return [document.getElementById('quote-box').innerHTML = HTMLbuild, document.body.style.background = BGCcolor];
