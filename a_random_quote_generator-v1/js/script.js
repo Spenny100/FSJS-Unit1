@@ -21,25 +21,25 @@ project 1 - A Random Quote Generator
 
 colors = [
     {
-        bcolor: "red"
+        bcolor: "linear-gradient(to right, #43cea2, #185a9d)"
     },
     {
-        bcolor: "green"
+        bcolor: "linear-gradient(to right, #833ab4, #fd1d1d, #fcb045)"
     },
     {
-        bcolor: "blue"
+        bcolor: "linear-gradient(to right, #00c6ff, #0072ff)"
     },
     {
-        bcolor: "purple"
+        bcolor: "linear-gradient(to right, #3494e6, #ec6ead)"
     },
     {
-        bcolor: "yellow"
+        bcolor: "linear-gradient(to right, #c21500, #ffc500)"
     }
 
 
 ];
 
-//print color to body code: document.body.style.backgroundColor = "red";
+
 
 /***
  * `quotes` array 
@@ -87,9 +87,15 @@ quotes = [
 
 function getRandomQuote(quoteParam) {
     let randomizer = quoteParam[Math.floor(Math.random() * quoteParam.length)];
-    let colorRandomizer = colorParam[Math.floor(Math.random() * colorParam.length)];
-    return [randomizer, colorRandomizer];
+    return randomizer;
  }
+
+
+ function getRandomColor(colorParam) {
+     let colorRandomizer = colorParam[Math.floor(Math.random() * colorParam.length)];
+     return colorRandomizer;
+ }
+
 
 
 
@@ -99,11 +105,12 @@ function getRandomQuote(quoteParam) {
 
 
 function printQuote(){
-    const randomQuote =  getRandomQuote(quotes, colors);
+    const randomQuote =  getRandomQuote(quotes);
+    const randomColor = getRandomColor(colors);
     HTMLbuild = `<p class="quote"> ${randomQuote.quote}</p><p class="source">${randomQuote.source}<span class="citation">${randomQuote.citation}</span><span class="year">${randomQuote.year}</span></p>`;
-    let randomColor = randomQuote.bcolor;
+    let BGCcolor = randomColor.bcolor;
 
-    return [document.getElementById('quote-box').innerHTML = HTMLbuild, document.body.style.backgroundColor = randomColor]
+    return [document.getElementById('quote-box').innerHTML = HTMLbuild, document.body.style.background = BGCcolor];
 
 
 }
