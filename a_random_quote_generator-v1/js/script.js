@@ -11,13 +11,9 @@ project 1 - A Random Quote Generator
  * Colors for changing the background
 ***/
 
-// background: linear-gradient(to right, #43cea2, #185a9d)
-// background: linear-gradient(to right, #ff416c, #ff4b2b);
-// background: linear-gradient(to right, #396afc, #2948ff);
-// background: linear-gradient(to right, #3494e6, #ec6ead);
-// background: linear-gradient(to right, #8e0e00, #1f1c18);
 
-//Body Colors Array:
+
+//Body Colors Array holding objects with the bcolor property and it's color value
 
 colors = [
     {
@@ -45,6 +41,7 @@ colors = [
  * `quotes` array 
 ***/
 
+//The quotes array which holds 5 different objects which contain 4 different properties and values
 quotes = [
     {
         quote: '"I love inside jokes. I hope to be a part of one someday."',
@@ -84,13 +81,14 @@ quotes = [
 ***/
 
 
-
+// The get random quote functions holds a variable called randomizer. Assigned to that variable is the code that selects a random object from the quotes array using Math objects.
+//The function then returns the value stored in the randomizer variable. quoteParam is the parameter that will take in the quotes array.
 function getRandomQuote(quoteParam) {
     let randomizer = quoteParam[Math.floor(Math.random() * quoteParam.length)];
     return randomizer;
  }
 
-
+//The getRandomColor function mimics the getRandomQuote function. But instead, it pulls from the colors array with the colorParam parameter.
  function getRandomColor(colorParam) {
      let colorRandomizer = colorParam[Math.floor(Math.random() * colorParam.length)];
      return colorRandomizer;
@@ -103,20 +101,29 @@ function getRandomQuote(quoteParam) {
  * `printQuote` function
 ***/
 
+//Stored inside the printQuote function are the getRandom functions from above. Each is assigned to the variables randomQuote and randomColor. Additonaly, each functions takes in the arrays //for parameters
 
+// The HTMLbuild variable holds the html inside of a template literal which will end up in the which will end up in the div element with the ID of quote-box. The BGCcolor variable holds the
+// color gradient that will be applied to the background of the page.
+// Since only one value can be returned in a return statement, the I stored both lines using the HTMLbuild and BGCcolor variables in empty brackets, separated by a comma (an empty array).
+// document.getElementById('quote-box').innerHTML = HTMLbuild <<< This posts the random quote to the page
+// document.body.style.background = BGCcolor <<< This changes the background color on the page
 function printQuote(){
     const randomQuote =  getRandomQuote(quotes);
     const randomColor = getRandomColor(colors);
-    HTMLbuild = `<p class="quote"> ${randomQuote.quote}</p><p class="source">${randomQuote.source}<span class="citation">${randomQuote.citation}</span><span class="year">${randomQuote.year}</span></p>`;
+    let HTMLbuild = `<p class="quote"> ${randomQuote.quote}</p><p class="source">${randomQuote.source}<span class="citation">${randomQuote.citation}</span><span class="year">${randomQuote.year}</span></p>`;
     let BGCcolor = randomColor.bcolor;
 
     return [document.getElementById('quote-box').innerHTML = HTMLbuild, document.body.style.background = BGCcolor];
-
-
 }
 
- printQuote();
+//This calls the printQuote and runs its contents. At this point, the Show Another Quote button can be pressed, and a random color background + random quote appear
+printQuote();
 
+//The setInterval method below then runs the printQuote function continuously, changing every 10 milliseconds (10 seconds).
+setInterval(() => {
+    printQuote();
+}, 10000)
 
 /***
  * click event listener for the print quote button
