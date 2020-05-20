@@ -44,35 +44,33 @@ colors = [
 //The quotes array which holds 5 different objects which contain 4 different properties and values
 quotes = [
     {
-        quote: '"I love inside jokes. I hope to be a part of one someday."',
+        quote: 'I love inside jokes. I hope to be a part of one someday.',
         source: 'Michael Scott',
         citation: 'The Office',
         year: '2006',
         genre: 'Sitcom'
     },
     {
-        quote: '"You couldn\'t handle my undivided attention."',
+        quote: 'False.',
         source: 'Dwight Schrute',
         citation: 'The Office',
-        year: '2010',
         genre: 'Sitcom'
     },
     {
-        quote: '"Andy Bernard does not lose contests. He wins them. Or he quits them. Because they\'re unfair."',
+        quote: 'Nailed it.',
         source: 'Andy Bernard',
         citation: 'The Office',
-        year: '2009',
         genre: 'Sitcom'
     },
     {
-        quote: '"This is Pretzel Day."',
+        quote: 'This is Pretzel Day.',
         source: 'Stanley Hudson',
         citation: 'The Office',
         year: '2006',
         genre: 'Sitcom'
     },
     {
-        quote: '"I got six numbers. One more and it would have been a complete phone number."',
+        quote: 'I got six numbers. One more and it would have been a complete phone number.',
         source: 'Kevin Malone',
         citation: 'The Office',
         year: '2009',
@@ -106,18 +104,39 @@ function getRandomQuote(quoteParam) {
  * `printQuote` function
 ***/
 
-//Stored inside the printQuote function are the getRandom functions from above. Each is assigned to the variables randomQuote and randomColor. Additonaly, each functions takes in the arrays //for parameters
+//Stored inside the printQuote function are the getRandom functions from above. Each is assigned to the variables randomQuote and randomColor. Additionally, each functions takes in the arrays for parameters. The HTMLbuild variable stores the first piece of the quote string, or the paragraph tag.
 
-// The HTMLbuild variable holds the html inside of a template literal which will end up in the which will end up in the div element with the ID of quote-box. The BGCcolor variable holds the
+//The for loop grabs all of objects from the Quotes array. The following if statement checks to see if the if the random item from the quotes array contains the year object. If it does, it adds the HTML to the rest of HTMLbuild variable which holds all of the objects that will print to the quote. If it doesn't it will print all of the object values EXCEPT the year value (which would appear as undefined)
+
+// The BGCcolor variable holds the
 // color gradient that will be applied to the background of the page.
 // Since only one value can be returned in a return statement, the I stored both lines using the HTMLbuild and BGCcolor variables in empty brackets, separated by a comma (an empty array).
+
+
 // document.getElementById('quote-box').innerHTML = HTMLbuild <<< This posts the random quote to the page
 // document.body.style.background = BGCcolor <<< This changes the background color on the page
+
+//Credit for loop:
+
 function printQuote(){
     const randomQuote =  getRandomQuote(quotes);
     const randomColor = getRandomColor(colors);
-    let HTMLbuild = `<p class="quote"> ${randomQuote.quote}</p><p class="source">${randomQuote.source}<span class="citation">${randomQuote.citation}</span><span class="year">${randomQuote.year}, </span><span>${randomQuote.genre}</span></p>`;
+    let HTMLbuild = '<p class="quote">';
+
+    for (x in randomQuote) {
+
+    }
+
+        if (randomQuote.year) {
+            HTMLbuild += randomQuote.quote + '</p>' + '<p class="source">' + randomQuote.source + '<span class="citation">' + randomQuote.citation + '</span><span class="year">' + randomQuote.year + ', ' + '</span>' + '<span>' + randomQuote.genre + '</span></p>';
+        } else {
+            HTMLbuild += randomQuote.quote + '</p><p class="source">' + randomQuote.source + '<span class="citation">' + randomQuote.citation +  ', </span>' + '<span>' + randomQuote.genre + '</span></p>';
+        }
+        
+
     let BGCcolor = randomColor.bcolor;
+
+     console.log(HTMLbuild);
 
     return [document.getElementById('quote-box').innerHTML = HTMLbuild, document.body.style.background = BGCcolor];
 }
