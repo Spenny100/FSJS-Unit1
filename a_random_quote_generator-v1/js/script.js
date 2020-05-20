@@ -86,6 +86,9 @@ quotes = [
 
 // The get random quote functions holds a variable called randomizer. Assigned to that variable is the code that selects a random object from the quotes array using Math objects.
 //The function then returns the value stored in the randomizer variable. quoteParam is the parameter that will take in the quotes array.
+
+//Credit to generating a random object: https://stackoverflow.com/questions/5915096/get-random-item-from-javascript-array
+
 function getRandomQuote(quoteParam) {
     let randomizer = quoteParam[Math.floor(Math.random() * quoteParam.length)];
     return randomizer;
@@ -116,7 +119,7 @@ function getRandomQuote(quoteParam) {
 // document.getElementById('quote-box').innerHTML = HTMLbuild <<< This posts the random quote to the page
 // document.body.style.background = BGCcolor <<< This changes the background color on the page
 
-//Credit for loop:
+//Credit for loop: https://stackoverflow.com/questions/4587061/how-to-determine-if-object-is-in-array
 
 function printQuote(){
     const randomQuote =  getRandomQuote(quotes);
@@ -132,7 +135,7 @@ function printQuote(){
         } else {
             HTMLbuild += randomQuote.quote + '</p><p class="source">' + randomQuote.source + '<span class="citation">' + randomQuote.citation +  ', </span>' + '<span>' + randomQuote.genre + '</span></p>';
         }
-        
+
 
     let BGCcolor = randomColor.bcolor;
 
